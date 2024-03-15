@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp" ng-controller="myCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda en Línea</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="../script.js"></script>
+    <link rel="stylesheet" href="../Assets/index.css">
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido a Mi Tienda en Línea</h1>
+        <div id="message"></div>
+    </header>
+
+    <script>
+        // Función para mostrar el mensaje recibido del servidor
+        function showMessage(message, success) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = message;
+            messageDiv.style.color = success ? 'green' : 'red'; // Estilo del mensaje
+        }
+
+        // Obtener el mensaje del servidor si se proporcionó
+        const searchParams = new URLSearchParams(window.location.search);
+        const message = searchParams.get('message');
+        const success = searchParams.get('success') === 'true';
+
+        if (message) {
+            showMessage(message, success);
+        }
+    </script>
+
+    <nav>
+        <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./login.html">Iniciar Sesión</a></li>
+            <li><a href="./signup.html">Registrarse</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./ofertas.html">Ofertas</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Contenido de la Página de Inicio</h2>
+        <p>Bienvenido a Mi Tienda en Línea, aquí encontrarás una variedad de productos increíbles.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mi Tienda en Línea. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
